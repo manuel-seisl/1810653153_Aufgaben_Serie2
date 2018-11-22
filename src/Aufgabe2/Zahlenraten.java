@@ -1,5 +1,7 @@
 package Aufgabe2;
 
+import com.sun.codemodel.internal.JOp;
+
 import javax.swing.*;
 import java.util.Random;
 
@@ -8,7 +10,7 @@ public class Zahlenraten
 
     public static void main(String[] args) {
 
-        String zahl = JOptionPane.showInputDialog("Bitte Zahl zwischen 1 und 10 eingeben:");
+        //String zahl = JOptionPane.showInputDialog("Bitte Zahl zwischen 1 und 10 eingeben:");
 
         int min = 1;
         int max = 10;
@@ -30,15 +32,27 @@ public class Zahlenraten
 
         }*/
 
-        int gerZahl = Integer.parseInt(zahl);
+        int gerZahl = 0;
 
-        if (gerZahl == zufallszahl) {
+        /*if (gerZahl == zufallszahl) {
             JOptionPane.showMessageDialog(null, "Sie haben die Zahl erraten!" + zufallszahl);
         } else if ( (zufallszahl - gerZahl) <= 2 && (zufallszahl - gerZahl) >= -2 ){
             JOptionPane.showMessageDialog(null, "Sie sind +2 oder -2 an der Zahl dran! " + zufallszahl);
         } else {
             JOptionPane.showMessageDialog(null, "Sie haben die Zahl nicht erraten!" + zufallszahl);
+        }*/
+
+        for ( int i = 0; i < 3; i++ )
+        {
+            if ( gerZahl == zufallszahl ){
+                JOptionPane.showMessageDialog(null, "Sie haben die Zahl erraten!");
+                break;
+            } else {
+                gerZahl = Integer.parseInt(JOptionPane.showInputDialog("Bitte Zahl zwischen 1 und 10 eingeben:"));
+            }
         }
+
+        JOptionPane.showMessageDialog(null, "Sie haben die Zahl leider nicht erraten!");
 
     }
 
